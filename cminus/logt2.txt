@@ -1,0 +1,110 @@
+
+C-MINUS COMPILATION: ../../basic/test_cases/test_2.txt
+
+Syntax tree:
+  Function Declaration: name = main, return type = void
+    Void Parameter
+    Compound Statement:
+      Variable Declaration: name = i, type = int
+      Variable Declaration: name = x, type = int[]
+        If Statement:
+      Assign: 
+        Variable: name = i
+        Const: 0
+      While Statement:
+        Op: <
+          Variable: name = i
+          Const: 5
+        Compound Statement:
+          Assign: 
+            Variable: name = i
+              Variable: name = i
+            Call: function name = input
+          Assign: 
+            Variable: name = i
+            Op: +
+              Variable: name = i
+              Const: 1
+      Assign: 
+        Variable: name = i
+        Const: 0
+      While Statement:
+        Op: <=
+          Variable: name = i
+          Const: 4
+        Compound Statement:
+          If Statement:
+            Op: !=
+              Variable: name = i
+                Variable: name = i
+              Const: 0
+            Compound Statement:
+              Call: function name = output
+                Variable: name = i
+                  Variable: name = i
+
+Building Symbol Table...
+
+		debugmode-> found: attr.name has  node (at case ParamK:  in analyze.c)
+Symbol error at line 0: void type parameter is not allowed
+
+Symbol table:
+
+<global scope> (nested level: 0)
+Symbol Name    Sym.Type  Data Type    Line Numbers
+-------------  --------  -----------  ------------
+main           Function  Void            1 
+input          Function  Integer        -1    8 
+output         Function  Void           -1   18 
+
+FName RType PName PType
+----- ----- ----- -----
+
+main	 void	   	 void	
+
+input	 int	   	 void	
+
+output	 void	
+		value	 int	
+
+function name: main (nested level: 1)
+Symbol Name    Sym.Type  Data Type    Line Numbers
+-------------  --------  -----------  ------------
+               Variable  Integer         0 
+i              Variable  Integer         3    5    6    8    8   10   10   13   14   16   16   18   18 
+x              Array Var 		   3 
+
+FName RType PName PType
+----- ----- ----- -----
+
+function name: main (nested level: 2)
+Symbol Name    Sym.Type  Data Type    Line Numbers
+-------------  --------  -----------  ------------
+
+FName RType PName PType
+----- ----- ----- -----
+
+function name: main (nested level: 2)
+Symbol Name    Sym.Type  Data Type    Line Numbers
+-------------  --------  -----------  ------------
+
+FName RType PName PType
+----- ----- ----- -----
+
+function name: main (nested level: 3)
+Symbol Name    Sym.Type  Data Type    Line Numbers
+-------------  --------  -----------  ------------
+
+FName RType PName PType
+----- ----- ----- -----
+
+
+Checking Types...
+Type error at line 8: expected array symbol
+EMessage: the number of parameters is wrong
+Type error at line 16: expected array symbol
+Type error at line 16: two operands should have non-void type
+Type error at line 18: expected array symbol
+Type error at line 18: void value cannot be passed as an argument
+
+Type Checking Finished!
